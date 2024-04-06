@@ -11,7 +11,7 @@ jobs:
       - uses: ika-rwth-aachen/docker-ros@v1.3.1
         with:
           command: ros2 lauch msg_MID360_launch.py
-          base-image: rwthika/ros2:humble-ros-core
+          base-image: rwthika/ros2:humble-perception
           enable-recursive-vcs-import: false
           vcs-import-file: livox_ros_driver2_dependencies.repos
           ros-distro: humble

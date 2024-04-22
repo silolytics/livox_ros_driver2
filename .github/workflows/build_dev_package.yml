@@ -1,0 +1,22 @@
+name: build-dev-package
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  docker-ros:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ika-rwth-aachen/docker-ros@v1.3.1
+        with:
+          command: ros2 lauch msg_MID360_launch.py
+          base-image: rwthika/ros2:humble-perception
+          enable-recursive-vcs-import: false
+          vcs-import-file: livox_ros_driver2_dependencies.repos
+          ros-distro: humble
+          platform: amd64
+          image-name: ghcr.io/${{ github.repository }}/humble
+      - name: Clean up
+        run: |
+          docker system prune -a -f

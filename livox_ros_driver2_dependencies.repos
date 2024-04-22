@@ -1,5 +1,0 @@
-repositories:
-  livox_sdk2:
-    type: git
-    url: https://github.com/silolytics/livox-sdk2.git
-    version: main

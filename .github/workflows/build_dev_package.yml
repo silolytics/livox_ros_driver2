@@ -11,7 +11,7 @@ jobs:
       - uses: ika-rwth-aachen/docker-ros@v1.3.1
         with:
           command: ros launch livox_ros_driver2 msg_MID360.launch
-          base-image: rwthika/ros-cuda:noetic-perception-v23.08
+          base-image: rwthika/ros:noetic-ros-core
           custom-script-file: docker/scripts/install_livox2_sdk.sh
           ros-distro: noetic
           platform: amd64

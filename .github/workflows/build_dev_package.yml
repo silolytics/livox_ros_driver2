@@ -3,20 +3,19 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - noetic-devel
 jobs:
   docker-ros:
     runs-on: ubuntu-latest
     steps:
       - uses: ika-rwth-aachen/docker-ros@v1.3.1
         with:
-          command: ros2 lauch msg_MID360_launch.py
-          base-image: rwthika/ros2:humble-perception
-          enable-recursive-vcs-import: false
-          vcs-import-file: livox_ros_driver2_dependencies.repos
-          ros-distro: humble
+          command: ros launch livox_ros_driver2 msg_MID360_launch.py
+          base-image: rwthika/ros-cuda:noetic-perception-v23.08
+          custom-script-file: docker/scripts/install_livox2_sdk.sh
+          ros-distro: noetic
           platform: amd64
-          image-name: ghcr.io/${{ github.repository }}/humble
+          image-name: ghcr.io/${{ github.repository }}/noetic
       - name: Clean up
         run: |
           docker system prune -a -f

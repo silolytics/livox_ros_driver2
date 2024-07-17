@@ -11,7 +11,7 @@
       "log_data_port": 56500
     },
     "host_net_info" : { 
-      "cmd_data_ip" : "192.168.1.16",
+      "cmd_data_ip" : "192.168.1.16", 
       "cmd_data_port": 56101,
       "push_msg_ip": "192.168.1.16",
       "push_msg_port": 56201,

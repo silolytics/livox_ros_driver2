@@ -30,6 +30,7 @@ find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 find_package(PCL REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(livox_sdk2 REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 # check apr
@@ -48,7 +49,7 @@ rosidl_generate_interfaces(${LIVOX_INTERFACES}
   LIBRARY_NAME ${PROJECT_NAME}
 )
 ## make sure the livox_lidar_sdk_shared library is installed
-find_library(LIVOX_LIDAR_SDK_LIBRARY liblivox_lidar_sdk_shared.so /usr/local/lib REQUIRED)
+find_library(LIVOX_LIDAR_SDK_LIBRARY liblivox_lidar_sdk_shared.so REQUIRED)
 ##
 find_path(LIVOX_LIDAR_SDK_INCLUDE_DIR
   NAMES "livox_lidar_api.h" "livox_lidar_def.h"
